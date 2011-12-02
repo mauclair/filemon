@@ -28,4 +28,4 @@ Moduł koszyka wraz z obsługą magazynu i płatności, dla Kohany w wersji 3.2.
 Aplikacja w trakcie projektowania. Chcesz zapytać, pomóc, masz uwagi? Odwiedź <http://forum.kohanaphp.pl> lub pytaj na polskiej stronie Kohany na Facebooku <http://www.facebook.com/pages/KohanaPHP-PL/106707469376458>.
 
 
-~ Riu <https://riunet.pl>
+~ Riu <http://riunet.pl>
