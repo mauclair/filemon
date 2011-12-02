@@ -50,12 +50,12 @@ dd {
 }
 
 a {
-	color:#3E7B9A;
+	color:#241f1c;
 	text-decoration:none;
 }
 
 a:hover {
-	color:#3e7c9c;
+	color:#ee3000;
 	text-decoration:underline;
 }
 
@@ -64,7 +64,7 @@ a[href^="http:"] {
 	background:transparent url('../img/ext_link.png') center right no-repeat;
 }
 
-a[href^="http://192.168"] { background:none; padding:0; margin:0; }
+
 
 code {
 	color:#6BAA3D;
@@ -170,8 +170,8 @@ h6:hover a.permalink {
 /* layout stuff */
 
 #kodoc-header {
-	background:#85da4c url('../img/header.png') bottom left repeat-x scroll;
-	padding:20px 20px 0;
+	background:#d4ee89 url('../img/header.png') bottom left repeat-x scroll;
+	padding:10px 20px 0;
 }
 
 #kodoc-nav {
@@ -291,11 +291,13 @@ h6:hover a.permalink {
 	float:right;
 	border:1px solid #CCC;
 	background:#EEE;
-	padding:0.5em;
+	padding:0.8em;
 	margin-top:1em;
 	margin-left:1.5em;
 	border-radius:10px;
+
 }
+
 
 	.kodoc-toc-header {
 		font-weight:bold;
@@ -307,6 +309,12 @@ h6:hover a.permalink {
 
 #kodoc-page-toc.open { }
 	#kodoc-page-toc.open .kodoc-toc-header { margin-bottom:1.5em; }
+
+#kodoc-page-toc.open ul li {
+	font-size:1.7em; 
+	line-height:0.882;
+
+}
 
 /* Api browser stuff */
 

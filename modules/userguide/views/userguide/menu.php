@@ -12,6 +12,6 @@
 
 <?php else: ?>
 
-	<p class="error">No modules.</p>
+	<p class="error">Brak modułów.</p>
 
 <?php endif; ?>

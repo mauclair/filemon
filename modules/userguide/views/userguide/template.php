@@ -18,7 +18,7 @@
 	<div id="kodoc-header">
 		<div class="container clearfix">
 			<div id="kodoc-logo">
-				<img src="<?php echo Route::url('docs/media', array('file' => 'img/kohana.png')) ?>" />
+				<img src="<?php echo Route::url('docs/media', array('file' => 'img/filemon.png')) ?>" />
 			</div>
 			<div id="kodoc-tabs">
 						<a href="<?php echo Route::url('docs/guide') ?>"><?php echo __('User Guide') ?></a>

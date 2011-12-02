@@ -112,17 +112,17 @@ $(document).ready(function()
 	$('#kodoc-main .method-source').each(function()
 	{
 		var self = $(this);
-		var togg = $(' <a class="sourcecode-toggle">[show]</a>').appendTo($('h4', self));
+		var togg = $(' <a class="sourcecode-toggle">[pokaż]</a>').appendTo($('h4', self));
 		var code = self.find('pre').hide();
 
 		togg.toggle(function()
 		{
-			togg.html('[hide]');
+			togg.html('[ukryj]');
 			code.stop(true, true).slideDown();
 		},
 		function()
 		{
-			togg.html('[show]');
+			togg.html('[pokaż]');
 			code.stop(true, true).slideUp();
 		});
 	});
@@ -132,7 +132,7 @@ $(document).ready(function()
 	$('#kodoc-main')
 		.find('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]')
 		.append(function(index, html){
-			return '<a href="#' + $(this).attr('id') + '" class="permalink">link to this</a>';
+			return '<a href="#' + $(this).attr('id') + '" class="permalink">link do tej treści</a>';
 		});
 
 // Table of contents for userguide pages

@@ -1,7 +1,11 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
 return array(
-	// Leave this alone
+	'api_browser'  => TRUE,
+	
+	// Enable these packages in the API browser.  TRUE for all packages, or a string of comma seperated packages, using 'None' for a class with no @package
+	// Example: 'api_packages' => 'Kohana,Kohana/Database,Kohana/ORM,None',
+	'api_packages' => TRUE,
 	'modules' => array(
 
 		// This should be the path to this modules userguide pages, without the 'guide/'. Ex: '/guide/modulename/' would be 'modulename'
