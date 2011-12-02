@@ -103,6 +103,7 @@ Kohana::modules(array(
 	'database'   => MODPATH.'database',   // Database access
 	'image'      => MODPATH.'image',      // Image manipulation
 	'userguide'  => MODPATH.'userguide',  // User guide and API documentation
+	'themer'       => MODPATH.'themer',       // Themes
 	));
 
 /**
