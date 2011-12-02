@@ -15,58 +15,98 @@ $(document).ready(function()
 	
 	// Any link that has the current page as its href should be class="current"
 	$('a[href="'+ window.location.pathname +'"]').addClass('current');
+	
+// Breadcrumbs magic
 
-	// Breadcrumbs magic
-	$('#breadcrumb li.last').each(function()
+	last = $('#kodoc-nav .breadcrumb-last');
+	li = $('<li></li>');
+	
+	$('#kodoc-menu li').has('a.current').each(function()
 	{
-		var $this = $(this);
-		var $topics = $('#topics li').has('a.current').slice(0, -1);
-
-		$topics.each(function()
+		// Only add if we aren't already on that page
+		if ($(this).find(':first-child').first().attr('href') != window.location.pathname)
 		{
-			// Create a copy of the menu link
-			var $crumb = $(this).children('a:first, span:not(.toggle):first').clone();
-
-			// Insert the menu link into the breadcrumbs
-			$('<li></li>').html($crumb).insertBefore($this);
-		});
+			// Clone the empty li, set it's html as the link or span, then prepend it to the last breadcrumb item
+			last.before(li.clone().html($(this).find(':first-child').first().clone()));
+		}
 	});
+	
+	// Now kill the duplicate link for the current page
+	//last.prev().remove();
 
-	// Collapsing menus
-	$('#topics li:has(li)').each(function()
-	{
-		var $this = $(this);
-		var toggle = $('<span class="toggle"></span>');
-		var menu = $this.find('>ul,>ol');
+// Collapsing menus
 
-		toggle.click(function()
+	// IE is stupid, so it doesn't get collapsing side menus
+	if ( ! $.browser.msie) {
+		
+		// Api browser, clickable Titles
+		var categories = $("#kodoc-menu li").find('span');
+		
+		// When you click the arrow, hide or show the menu
+		categories.click(function()
 		{
+			var menu = $(this).next('ol,ul');
+			var link = $(this).parent();
 			if (menu.is(':visible'))
 			{
-				menu.stop(true, true).slideUp('fast');
-				toggle.html('+');
+				// hide menu
+				menu.stop(true,true).slideUp('fast');
+				link.addClass('toggle-close').removeClass('toggle-open');
 			}
 			else
 			{
-				menu.stop(true, true).slideDown('fast');
-				toggle.html('&ndash;');
+				// show menu
+				menu.stop(true,true).slideDown('fast');
+				link.addClass('toggle-open').removeClass('toggle-close');
+			}
+			return
+		});
+		
+		
+		// Collapsable menus
+		$('#kodoc-menu li').has('li').each(function()
+		{
+			var link = $(this);
+			var menu = link.find('ul:first, ol:first');
+			var togg = $('<a class="menu-toggle"></a>');
+			link.prepend(togg);
+			
+			// When you click the arrow, hide or show the menu
+			togg.click(function()
+			{
+				if (menu.is(':visible'))
+				{
+					// hide menu
+					menu.stop(true,true).slideUp('fast');
+					link.addClass('toggle-close').removeClass('toggle-open');
+				}
+				else
+				{
+					// show menu
+					menu.stop(true,true).slideDown('fast');
+					link.addClass('toggle-open').removeClass('toggle-close');
+				}
+				return
+			});
+			
+			// Hide all menus that do not contain the active link
+			menu.not(':has(a[href="'+ window.location.pathname +'"])').hide();
+			
+			// If the current page is a parent, then show the children
+			link.has('a[href="'+ window.location.pathname +'"]').find('ul:first, ol:first').show();
+			
+			// Add the classes to make the arrows show
+			if (menu.is(':visible'))
+			{
+				link.addClass('toggle-open');
+			}
+			else
+			{
+				link.addClass('toggle-close');
 			}
 		});
-
-		$this.find('>span').click(function()
-		{
-			// Menu without a link
-			toggle.click();
-		});
-
-		if ( ! $this.is(':has(a.current)'))
-		{
-			menu.hide();
-		}
-
-		toggle.html(menu.is(':visible') ? '&ndash;' : '+').prependTo($this);
-	});
-
+	}
+	
 // Show source links
 
 	$('#kodoc-main .method-source').each(function()
@@ -87,11 +127,41 @@ $(document).ready(function()
 		});
 	});
 
-	// "Link to this" link that appears when you hover over a header
-	$('#body')
-		.find('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]')
-		.append(function(){
-			var $this = $(this);
-			return '<a href="#' + $this.attr('id') + '" class="permalink">link to this</a>';
+// "Link to this" link that appears when you hover over a header
+
+	$('#kodoc-main')
+		.find('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]')
+		.append(function(index, html){
+			return '<a href="#' + $(this).attr('id') + '" class="permalink">link to this</a>';
 		});
+
+// Table of contents for userguide pages
+	
+	// When the show/hide link for the page toc is clicked, toggle visibility
+	$('#kodoc-toc-toggle').click(function()
+	{
+		if ($('#kodoc-page-toc-content').is(':visible'))
+		{
+			// Hide the contents
+			$(this).html('show');
+			$('#kodoc-page-toc').addClass('closed').removeClass('open')
+			$('#kodoc-page-toc-content').hide();
+			$.cookie('kodoc-toc-show',"false");
+		}
+		else
+		{
+			// Show the contents
+			$(this).html('hide');
+			$('#kodoc-page-toc').addClass('open').removeClass('closed')
+			$('#kodoc-page-toc-content').show();
+			$.cookie('kodoc-toc-show',"true");
+		}
+	});
+	
+	// If the cookie says to hide the toc, hide it by clicking the toggle
+	if ($.cookie('kodoc-toc-show') == "false")
+	{
+		$('#kodoc-toc-toggle').click();
+	}
+
 });

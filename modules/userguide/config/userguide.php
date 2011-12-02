@@ -19,7 +19,7 @@ return array
 			'enabled' => TRUE,
 			
 			// The name that should show up on the userguide index page
-			'name' => 'Userguide',
+			'name' => 'Podręcznik użytkownika',
 
 			// A short description of this module, shown on the index page
 			'description' => 'Documentation viewer and api generation.',

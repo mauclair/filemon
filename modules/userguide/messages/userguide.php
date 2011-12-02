@@ -2,6 +2,7 @@
 
 return array(
 	'translations' => array(
+		'pl-pl' => 'Polska',
 		'de-de' => 'Deutsch',
 		'en-us' => 'English',
 		'es-es' => 'Español',

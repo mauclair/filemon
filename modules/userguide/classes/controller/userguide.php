@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 /**
- * Kohana user guide and api browser.
+ * Kohana Podręcznik użytkownika and Przeglądaj API.
  *
  * @package    Kohana/Userguide
  * @category   Controllers
@@ -53,8 +53,8 @@ class Controller_Userguide extends Controller_Template {
 	// List all modules that have userguides
 	public function index()
 	{
-		$this->template->title = "Userguide";
-		$this->template->breadcrumb = array('User Guide');
+		$this->template->title = "Podręcznik użytkownika";
+		$this->template->breadcrumb = array('Podręcznik użytkownika');
 		$this->template->content = View::factory('userguide/index', array('modules' => $this->_modules()));
 		$this->template->menu = View::factory('userguide/menu', array('modules' => $this->_modules()));
 		
@@ -66,7 +66,7 @@ class Controller_Userguide extends Controller_Template {
 	public function error($message)
 	{
 		$this->response->status(404);
-		$this->template->title = "Userguide - Error";
+		$this->template->title = "Podręcznik użytkownika - Błąd";
 		$this->template->content = View::factory('userguide/error',array('message' => $message));
 		
 		// Don't show disqus on error pages
@@ -81,20 +81,20 @@ class Controller_Userguide extends Controller_Template {
 		
 			$this->template->menu = Markdown($this->_get_all_menu_markdown());
 			$this->template->breadcrumb = array(
-				$this->guide->uri() => 'User Guide',
+				$this->guide->uri() => 'Podręcznik użytkownika',
 				$this->guide->uri(array('module' => $module)) => Kohana::$config->load('userguide.modules.'.$module.'.name'),
 				'Error'
 			);
 		}
-		// If we are in the api browser, show the menu and show the api browser in the breadcrumbs
+		// If we are in the Przeglądaj API, show the menu and show the Przeglądaj API in the breadcrumbs
 		else if (Route::name($this->request->route()) == 'docs/api')
 		{
 			$this->template->menu = Kodoc::menu();
 
 			// Bind the breadcrumb
 			$this->template->breadcrumb = array(
-				$this->guide->uri(array('page' => NULL)) => 'User Guide',
-				$this->request->route()->uri() => 'API Browser',
+				$this->guide->uri(array('page' => NULL)) => 'Podręcznik użytkownika',
+				$this->request->route()->uri() => 'Przeglądaj API',
 				'Error'
 			);
 		}
@@ -102,7 +102,7 @@ class Controller_Userguide extends Controller_Template {
 		else
 		{
 			$this->template->menu = View::factory('userguide/menu',array('modules' => $this->_modules()));
-			$this->template->breadcrumb = array($this->request->route()->uri() => 'User Guide','Error');
+			$this->template->breadcrumb = array($this->request->route()->uri() => 'Podręcznik użytkownika','Error');
 		}
 	}
 
@@ -114,7 +114,7 @@ class Controller_Userguide extends Controller_Template {
 		// Trim trailing slash
 		$page = rtrim($page, '/');
 
-		// If no module provided in the url, show the user guide index page, which lists the modules.
+		// If no module provided in the url, show the Podręcznik użytkownika index page, which lists the modules.
 		if ( ! $module)
 		{
 			return $this->index();
@@ -170,7 +170,7 @@ class Controller_Userguide extends Controller_Template {
 
 		// Add the breadcrumb trail
 		$breadcrumb = array();
-		$breadcrumb[$this->guide->uri()] = __('User Guide');
+		$breadcrumb[$this->guide->uri()] = 'Podręcznik użytkownika';
 		$breadcrumb[$this->guide->uri(array('module' => $module))] = Kohana::$config->load('userguide.modules.'.$module.'.name');
 		
 		// TODO try and get parent category names (from menu).  Regex magic or javascript dom stuff perhaps?
@@ -239,8 +239,8 @@ class Controller_Userguide extends Controller_Template {
 
 		// Add the breadcrumb
 		$breadcrumb = array();
-		$breadcrumb[$this->guide->uri(array('page' => NULL))] = __('User Guide');
-		$breadcrumb[$this->request->route()->uri()] = 'API Browser';
+		$breadcrumb[$this->guide->uri(array('page' => NULL))] = 'Podręcznik użytkownika';
+		$breadcrumb[$this->request->route()->uri()] = 'Przeglądaj API';
 		$breadcrumb[] = $this->template->title;
 	}
 
@@ -284,7 +284,7 @@ class Controller_Userguide extends Controller_Template {
 			// Add styles
 			$this->template->styles = array(
 				$media->uri(array('file' => 'css/print.css'))  => 'print',
-				$media->uri(array('file' => 'css/screen.css')) => 'screen',
+				$media->uri(array('file' => 'css/reset.css')) => 'screen',
 				$media->uri(array('file' => 'css/kodoc.css'))  => 'screen',
 				$media->uri(array('file' => 'css/shCore.css')) => 'screen',
 				$media->uri(array('file' => 'css/shThemeKodoc.css')) => 'screen',

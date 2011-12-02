@@ -102,8 +102,8 @@ Kohana::modules(array(
 	'docpl'       => MODPATH.'docpl',       // Filemon documentation
 	'database'   => MODPATH.'database',   // Database access
 	'image'      => MODPATH.'image',      // Image manipulation
-	'userguide'  => MODPATH.'userguide',  // User guide and API documentation
 	'themer'       => MODPATH.'themer',       // Themes
+	'userguide'  => MODPATH.'userguide',  // User guide and API documentation
 	));
 
 /**
