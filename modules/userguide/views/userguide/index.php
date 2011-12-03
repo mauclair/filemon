@@ -1,6 +1,6 @@
-<h1>User Guide</h1>
+<h1>Podręcznik użytkownika</h1>
 
-<p>The following modules have userguide pages:</p>
+<p>Witaj w podręczniku użytkownika! Poniżej znajduje się lista wszystkich modułów Filemona, opisanych w podręczniku:</p>
 
 <?php if( ! empty($modules)): ?>
 
@@ -15,6 +15,6 @@
 	
 <?php else: ?>
 
-	<p class="error">I couldn't find any modules with userguide pages.</p>
+	<p class="error">Niestety nie ma żadnych opisanych modułów.</p>
 
 <?php endif; ?>

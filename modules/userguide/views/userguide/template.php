@@ -4,7 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
 <title><?php echo $title ?> | Filemon <?php echo __('User Guide'); ?></title>
-
+<link rel="shortcut icon" href="/guide/media/img/favicon.ico">
+<link rel="apple-touch-icon" href="/guide/media/img/apple-touch-icon.png">
 <?php foreach ($styles as $style => $media) echo HTML::style($style, array('media' => $media), NULL, TRUE), "\n" ?>
 
 <?php foreach ($scripts as $script) echo HTML::script($script, NULL, NULL, TRUE), "\n" ?>

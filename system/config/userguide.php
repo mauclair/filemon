@@ -14,10 +14,10 @@ return array(
 			'name' => 'Kohana',
 
 			// A short description of this module, shown on the index page
-			'description' => 'Documentation for Kohana core/system.',
+			'description' => 'Podstawowa dokumentacja dla frameworka Kohana.',
 			
 			// Copyright message, shown in the footer for this module
-			'copyright' => '&copy; 2008–2010 Kohana Team',
+			'copyright' => '&copy; 2011 RIUNET',
 		)	
 	)
 );

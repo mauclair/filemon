@@ -14,10 +14,10 @@ return array(
 			'name' => 'Database',
 
 			// A short description of this module, shown on the index page
-			'description' => 'Database agnostic querying and result management.',
+			'description' => 'Obsługa baz danych.',
 			
 			// Copyright message, shown in the footer for this module
-			'copyright' => '&copy; 2008–2010 Kohana Team',
+			'copyright' => '&copy; 2011 RIUNET',
 		)	
 	)
 );

@@ -1,25 +1,23 @@
-# How the Userguide works
+# Jak działa podręcznik
 
-The userguide uses [Markdown](markdown) for the documentation.  Both the userguide pages, and the in code comments for the API browser are written in markdown.
+Podręcznik używa składni [Markdown](markdown) do tworzenia dokumentacji.  Strony podręcznika, jak i przeglądarka API są napisane w wykorzystaniem tej składni.
 
-## Userguide pages
+## Strony podręcznika
 
-Userguide pages are in the module they apply to, in `guide/<module>`. For example, documentation for Kohana is in `system/guide/kohana` and documentation for orm is in `modules/orm/guide/orm`, database is in `modules/database/guide/database`, etc.
+Strony podręcznika są umieszczane w module w folderze `guide/<module>`. Dla przykładu, dokumentacja dla Kohany jest w `system/guide/kohana`, a dokumentacja dla database jest w `modules/database/guide/database`, image jest w `modules/image/guide/image`, etc.
 
-Each module has an index page at `guide/<module>/index.md`.
+Każdy moduł powinien mieć stronę index `guide/<module>/index.md`.
 
-Each module's menu is at `guide/<module>/menu.md`.
+Każdy moduł powinien mieć stronę menu `guide/<module>/menu.md`.
 
-All other pages are are in `guide/<module>` and can be organized in subfolders and named however you want.
+Reszta stron w folderze `guide/<module>` może być zorganizowana w subfolderach i przy zastosowaniu dowolnych nazw.
 
-For more info on how to make your module have userguide pages, see [Adding your module](adding).
+Jeśli chcesz przeczytać więcej na ten temat zobacz [Dodawanie modułu](adding).
 
-### Images
+### Obrazy
 
-Any images used in the userguide pages must be in `media/guide/<module>/`.  For example, if a page has `![Image Title](hello-world.jpg)` the image would be located at `media/guide/<module>/hello-world.jpg`.  Images for the ORM module are in `modules/orm/media/guide/orm`, and images for the Kohana docs are in `system/media/guide/kohana`.
+Jakiekolwiek obrazy wykorzystywane w dokumentacji powinny zostać umieszczone w folderze `media/guide/<module>/`.  Przykład `![Image Title](hello-world.jpg)` obraz powinien mieć ścieżkę `media/guide/<module>/hello-world.jpg`.  Obrazy dla modułu Database powinny być w `modules/database/media/guide/database`, a obrazy dla dokumentacji Kohana w `system/media/guide/kohana`.
 
-### API browser
+### Przeglądarka API
 
-The API browser is generated from the actual source code.  The descriptions for classes, constants, properties, and methods is extracted from the comments and parsed in Markdown.  For example if you look in the comment for [Kohana_Core::init](http://github.com/kohana/core/blob/c443c44922ef13421f4a/classes/kohana/core.php#L5) you can see a markdown list and table.  These are parsed and show correctly in the API browser.  `@param`, `@uses`, `@throws`, `@returns` and other tags are parsed as well.
-
-TODO: give more specific details on how to comment your classes, constants, methods, etc. including package and how it relates to the api module.
+Przeglądarka API jest generowana na podstawie aktualnego źródła.  Opis klas, stałych, wyjątków, metod jest generowany z komentarzy kodu źródłowego i parsowany za pomocą Markdown. 

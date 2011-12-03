@@ -2,9 +2,9 @@
 
 Standardowa lokalizacja pliku konfiguracyjnego to `MODPATH/themer/config/themer.php`.
 
-## Standardowy plik konfiguracyjny
+## Zawartość pliku konfiguracyjnego
 
-return array(
-	'theme' => 'default',
-);
+	return array(
+		'theme' => 'default',
+	);
 

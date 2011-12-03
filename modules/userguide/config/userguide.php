@@ -19,13 +19,13 @@ return array
 			'enabled' => TRUE,
 			
 			// The name that should show up on the userguide index page
-			'name' => 'Podręcznik użytkownika',
+			'name' => 'Userguide',
 
 			// A short description of this module, shown on the index page
-			'description' => 'Documentation viewer and api generation.',
+			'description' => 'Przeglądanie i tworzenie dokumentacji, oraz przeglądanie API.',
 			
 			// Copyright message, shown in the footer for this module
-			'copyright' => '&copy; 2008–2011 Kohana Team',
+			'copyright' => '&copy; 2011 RIUNET',
 		)	
 	)
 );

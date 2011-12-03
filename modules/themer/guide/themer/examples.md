@@ -1,4 +1,4 @@
-# Examples
+# Przykłady
 
 System obsługi widoków (frameworka Kohana).
 

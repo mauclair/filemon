@@ -1,33 +1,33 @@
-# Adding your module to the userguide
+# Dodawanie modułu do podręcznika
 
-Making your module work with the userguide is simple.
+Tworzenie dokumentacji do podręcznika dla własnego modułu jest bardzo proste.
 
-First, copy this config and place in it `<module>/config/userguide.php`, replacing anything in `<>` with the appropriate things:
+Na początek skopiuj poniższy kod do pliku `<module>/config/userguide.php`, zamieniając wszystko w nawiasach `<>` na właściwy tekst:
 
 	return array
 	(
-		// Leave this alone
+		// Pozostaw bez edycji
 		'modules' => array(
 	
-			// This should be the path to this modules userguide pages, without the 'guide/'. Ex: '/guide/modulename/' would be 'modulename'
+			// To powinna być ścieżka/nazwa modułu np. 'database'
 			'<modulename>' => array(
 	
-				// Whether this modules userguide pages should be shown
+				// Jeśli TRUE moduł będzie widoczny w podręczniku
 				'enabled' => TRUE,
 				
-				// The name that should show up on the userguide index page
-				'name' => '<Module Name>',
+				// Nazwa widoczna przy listowaniu modułów w podręczniku
+				'name' => '<Nazwa modułu>',
 	
-				// A short description of this module, shown on the index page
-				'description' => '<Description goes here.>',
+				// Krótki opis widoczny przy listowaniu modułów w podręczniku
+				'description' => '<Krótki opis>',
 				
-				// Copyright message, shown in the footer for this module
-				'copyright' => '&copy; 2010–2011 <Your Name>',
+				// Informacja w stopce, informacja o autorze
+				'copyright' => '&copy; 2010–2011 <Autor>',
 			)	
 		)
 	);
 
-Next, create a folder in your module directory called `guide/<modulename>` and create `index.md` and `menu.md`.  All userguide pages use [Markdown](markdown).  The index page is what is shown on the index of your module, the menu is what shows up in the side column.  The menu should be formatted like this:
+Następnie, w folderze modułu utwórz folder `guide/<modulename>` oraz pliki `index.md` i `menu.md`.  Wszystkie strony korzystają z [Markdown](markdown).  Menu dokeumtnacji dla Twojego modułu powinno wyglądać np. tak:
 
 	## [Module Name]()
 	 - [Page name](page-path)
